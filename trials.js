@@ -18,7 +18,7 @@ function outputAllItems(items) {
 //
 // Ex.:
 //   > getAllEvens([7, 8, 10, 1, 2, 2]);
-//   [8, 2, 2]
+//   [8, 10, 2, 2]
 function getAllEvens(nums) {
   const evenNums = [];
 
@@ -96,13 +96,15 @@ function censorVowels(word) {
   for (const letter of word) {
     if ('aeiou'.includes(letter)) {
       chars.push('*');
+    } else {
+      chars.push(letter);
     }
-    chars.push(letter);
   }
 
   return chars.join('');
 }
 
+console.log(censorVowels('hello world'));
 
 // Given a string in snake case, return a string in upper camel case.
 //
@@ -188,7 +190,7 @@ function hasBalancedParens(string) {
     }
   }
 
-  return parens < 0;
+  return parens === 0;
 }
 
 
