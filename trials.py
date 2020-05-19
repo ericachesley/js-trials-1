@@ -95,8 +95,49 @@ print(truncate('hi***!!!! wooow'))
 
 
 def has_balanced_parens(string):
-    pass  # TODO: replace this line with your code
+    parens = 0
+    for char in string:
+        if char == '(':
+            parens += 1
+        elif char == ')':
+            parens -= 1
+
+        if parens < 0:
+            return False
+
+    return parens == 0
+
+print(has_balanced_parens('(Hello)) world(()'))
+print(has_balanced_parens('(Hello) world()'))
 
 
 def compress(string):
-    pass  # TODO: replace this line with your code
+    compressed = []
+    currChar = ''
+    charCount = 0
+
+    for char in string:
+        if char != currChar:
+            compressed.append(currChar)
+
+            if charCount > 1:
+                compressed.append(str(charCount))
+
+            currChar = char
+            charCount = 0
+
+        charCount += 1
+
+    compressed.append(currChar)
+    if charCount > 1:
+        compressed.append(str(charCount))
+
+    return ''.join(compressed)
+
+print(compress('aabbaabb'))
+print(compress('abc'))
+print(compress('Hello, world! Cows go moooo...'))
+
+
+
+
